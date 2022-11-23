@@ -6,7 +6,7 @@
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import { computed, onMounted } from "@vue/runtime-core";
 import { useStore } from 'vuex'
 import Card from "../Card/Card.vue";

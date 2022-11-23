@@ -12,12 +12,12 @@
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import { useStore } from "vuex";
 export default {
   setup() {
     const store = useStore();
-    const filtro = (region: any) => {
+    const filtro = (region) => {
       store.dispatch("filtrarRegion", region);
     };
     return { filtro };

@@ -8,7 +8,7 @@
   />
 </template>
 
-<script lang="ts">
+<script>
 import { ref } from "vue";
 import { useStore } from "vuex";
 export default {

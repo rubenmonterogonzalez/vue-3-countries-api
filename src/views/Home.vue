@@ -4,7 +4,7 @@ import SearchBar from "../components/SearchBar/SearchBar.vue";
 import CountryGrid from "../components/CountryGrid/CountryGrid.vue";
 import FilterRegion from "../components/Filter/FilterRegion.vue";
 export default {
-  name: "App",
+  name: "Home",
   components: {
     FilterRegion,
     SearchBar,

@@ -27,11 +27,11 @@
   </div>
 </template>
 
-<script lang="ts">
+<script>
 export default {
   props: ["pais"],
   setup() {
-    const numeroFormato = (num: any) => {
+    const numeroFormato = (num) => {
       return new Intl.NumberFormat("de-DE").format(num);
     };
 
