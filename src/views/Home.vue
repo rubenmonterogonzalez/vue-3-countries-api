@@ -4,7 +4,7 @@ import SearchBar from "../components/SearchBar/SearchBar.vue";
 import CountryGrid from "../components/CountryGrid/CountryGrid.vue";
 import FilterRegion from "../components/Filter/FilterRegion.vue";
 export default {
-  name: "App",
+  name: "Home",
   components: {
     FilterRegion,
     SearchBar,
@@ -16,9 +16,9 @@ export default {
 
 <template>
   <Header />
-  <main class="mx-5 my-10 container">
-    <section class="">
-      <div class="flex">
+  <main class="mx-auto my-10 container">
+    <section>
+      <div class="flex p-12 justify-between">
         <SearchBar />
         <FilterRegion />
       </div>

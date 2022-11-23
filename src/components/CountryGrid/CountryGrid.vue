@@ -1,12 +1,12 @@
 <template>
-  <div class="row">
-    <div class="col-12" v-for="pais in paises" :key="pais.name">
-      <Card :pais="pais" />
+  <div class="p-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  lg:grid-cols-4 gap-12">
+    <div class="" v-for="country in countries" :key="country.name">
+      <Card :country="country" />
     </div>
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import { computed, onMounted } from "@vue/runtime-core";
 import { useStore } from 'vuex'
 import Card from "../Card/Card.vue";
@@ -16,14 +16,15 @@ export default {
   },
   setup() {
     const store = useStore();
-    const paises = computed(() => {
-      return store.getters.topPaisesPerPob;
+    const countries = computed(() => {
+      return store.getters.topCountriesPerPob;
     });
     onMounted(async () => {
-      await store.dispatch("getPaises");
+      await store.dispatch("getCountries");
       store.dispatch("filtrarRegion", "Americas");
     });
-    return { paises };
+    return { countries };
   },
 };
 </script>
+

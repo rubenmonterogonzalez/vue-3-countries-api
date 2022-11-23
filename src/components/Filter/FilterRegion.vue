@@ -1,26 +1,35 @@
 <template>
-  <div class="text-center">
-    <h3>Filtrar por Continente</h3>
-    <div class="btn-group mb-2">
-      <button class="btn btn-dark" @click="filtro('Americas')">AM</button>
-      <button class="btn btn-dark" @click="filtro('Europe')">EU</button>
-      <button class="btn btn-dark" @click="filtro('Africa')">AF</button>
-      <button class="btn btn-dark" @click="filtro('Asia')">AS</button>
-      <button class="btn btn-dark" @click="filtro('Oceania')">OC</button>
-      <button class="btn btn-dark" @click="filtro('')">All</button>
-    </div>
-  </div>
+  <select class="w-28 shadow-md h-10 mb-14 bg-white rounded-sm pl-2" v-model="selected">
+    <option class="" value="All" disabled>All</option>
+    <option class="" value="Americas">America</option>
+    <option class="" value="Europe">Europe</option>
+    <option class="" value="Africa">Africa</option>
+    <option class="" value="Asia">Asia</option>
+    <option class="" value="Oceania">Oceania</option>
+  </select>
+  <p>
+    Selected region : {{ selected }}
+  </p>
 </template>
 
-<script lang="ts">
+<script>
 import { useStore } from "vuex";
+import { ref } from "vue";
+
 export default {
   setup() {
     const store = useStore();
-    const filtro = (region: any) => {
-      store.dispatch("filtrarRegion", region);
+    const selected = ref("All");
+    const filtro = () => {
+      return store.dispatch("filtrarRegion", selected.value);
     };
-    return { filtro };
+
+    console.log(selected.value)
+
+    return { filtro, selected };
   },
 };
 </script>
+
+
+
