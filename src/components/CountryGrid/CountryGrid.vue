@@ -23,3 +23,4 @@ watchEffect(async () => {
   store.dispatch("filtrarRegion", "All");
 });
 </script>
+

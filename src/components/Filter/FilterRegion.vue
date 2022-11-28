@@ -24,3 +24,6 @@ watchEffect(() => {
   return store.dispatch("filtrarRegion", selected.value);
 });
 </script>
+
+
+
