@@ -1,41 +1,30 @@
 <template>
-  <div class="card mb-2">
-    <div class="card-body">
-      <h5 class="text-center">{{ pais.name }}</h5>
-      <p class="text-center">
-        <img
-          :src="pais.flags.svg"
-          :alt="`bandera-${pais.name}`"
-          class="img-fluid w-50"
-        />
-      </p>
-      <p class="card-text">
-        <span class="badge badge-dark d-block mb-1"
-          >Nombre Nativo: {{ pais.nativeName }}</span
-        >
-        <span class="badge badge-info p-3 d-block mb-1"
-          >Población: {{ numeroFormato(pais.population) }}</span
-        >
-        <span class="badge badge-dark d-block mb-1"
-          >Capital: {{ pais.capital }}</span
-        >
-        <span class="badge badge-dark d-block mb-1"
-          >Region: {{ pais.region }}</span
-        >
-      </p>
-    </div>
-  </div>
+  <RouterLink :to="`/country/${pais.name.common}`">
+      <img
+        :src="pais.flags.svg"
+        :alt="`bandera-${pais.name.common}`"
+        class="w-50 rounded-t-md shadow-md object-cover w-full h-64 md:h-48"
+      />
+      <div class="shadow-md rounded-b-md p-3 h-40">
+        <p class="text-2xl h-16">
+          <strong>{{ pais.name.common }}</strong>
+        </p>
+        <p>
+          <strong>Population: </strong
+          >{{ pais.population.toLocaleString("de-DE") }}
+        </p>
+        <p class=""><strong>Capital: </strong>{{ pais.capital?.[0] || pais.name.common}}</p>
+        <p class=""><strong>Region: </strong>{{ pais.region }}</p>
+      </div>
+  </RouterLink>
 </template>
 
-<script lang="ts">
-export default {
-  props: ["pais"],
-  setup() {
-    const numeroFormato = (num: any) => {
-      return new Intl.NumberFormat("de-DE").format(num);
-    };
+<script setup>
+import { RouterLink } from 'vue-router';
 
-    return { numeroFormato };
-  },
-};
+const props = defineProps({
+  pais: Object,
+});
 </script>
+
+

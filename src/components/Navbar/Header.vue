@@ -1,13 +1,7 @@
-<script>
+<script setup>
 import { RouterLink } from "vue-router";
 import  MoonIcon  from "@heroicons/vue/24/solid/MoonIcon";
 
-export default {
-  name: "Header",
-  components: {
-    MoonIcon,
-  }, 
-};
 </script>
 
 <template>

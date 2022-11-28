@@ -1,24 +1,20 @@
 <template>
   <input
     type="text"
-    class="form-control my-3"
-    placeholder="Ingrese un País"
+    class="w-52 md:w-96 shadow-md h-10 mb-14 bg-white rounded-sm pl-2"
+    placeholder="Search for a country..."
     v-model="texto"
-    @keyup="buscarInput"
-  />
+   @keyup="buscarInput" 
+   />
 </template>
 
-<script lang="ts">
+<script setup>
 import { ref } from "vue";
 import { useStore } from "vuex";
-export default {
-  setup() {
-    const store = useStore();
-    const texto = ref("");
-    const buscarInput = () => {
-      return store.dispatch("filtrarNombre", texto.value);
-    };
-    return { texto, buscarInput };
-  },
+
+const store = useStore();
+const texto = ref("");
+const buscarInput = () => {
+  return store.dispatch("filtrarNombre", texto.value);
 };
 </script>
