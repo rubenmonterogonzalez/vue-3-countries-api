@@ -61,7 +61,7 @@ export default createStore({
 		}
 	},
 	getters: {
-		topPaisesPerPob(state) {
+		topPaisesPerPob: state => {
 			return state.paisesFiltrados.sort((a, b) => {
 				return a.population < b.population ? 1 : -1
 			})
