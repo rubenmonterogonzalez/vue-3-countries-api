@@ -13,17 +13,16 @@
 </template>
 
 <script setup>
-import { useStore } from "vuex";
+import { usePaisesStore } from "../../stores/paises";
 import { ref } from "vue";
-import { watchEffect } from "vue";
+import { watchEffect} from "vue";
 
-const store = useStore();
+const store = usePaisesStore();
 const selected = ref("All");
 
 watchEffect(() => {
-  return store.dispatch("filtrarRegion", selected.value);
+  return store.filtrarRegion(selected.value);
 });
+
+
 </script>
-
-
-

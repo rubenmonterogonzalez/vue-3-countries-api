@@ -4,17 +4,17 @@
     class="w-52 md:w-96 shadow-md h-10 mb-14 bg-white rounded-sm pl-2"
     placeholder="Search for a country..."
     v-model="texto"
-   @keyup="buscarInput" 
-   />
+    @keyup="buscarInput"
+  />
 </template>
 
 <script setup>
 import { ref } from "vue";
-import { useStore } from "vuex";
+import { usePaisesStore } from "../../stores/paises";
 
-const store = useStore();
+const store = usePaisesStore();
 const texto = ref("");
 const buscarInput = () => {
-  return store.dispatch("filtrarNombre", texto.value);
+  return store.filtrarNombre(texto.value);
 };
 </script>
