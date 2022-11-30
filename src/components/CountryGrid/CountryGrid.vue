@@ -31,7 +31,7 @@ const { getPaises } = store;
 watchEffect(async () => {
   await getPaises();
   topPaisesPerPob();
-  // filtrarRegion("All")
+  filtrarRegion("All")
 });
 </script>
 

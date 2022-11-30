@@ -21,10 +21,8 @@ const store = usePaisesStore();
 const { filtrarRegion } = store;
 const selected = ref("All");
 
-
 watchEffect(() => {
-  return filtrarRegion(selected.value);
+  return store.filtrarRegion(selected.value);
 });
-
 
 </script>
