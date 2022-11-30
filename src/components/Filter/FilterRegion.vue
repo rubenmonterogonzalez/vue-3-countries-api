@@ -18,10 +18,12 @@ import { ref } from "vue";
 import { watchEffect} from "vue";
 
 const store = usePaisesStore();
+const { filtrarRegion } = store;
 const selected = ref("All");
 
+
 watchEffect(() => {
-  return store.filtrarRegion(selected.value);
+  return filtrarRegion(selected.value);
 });
 
 
